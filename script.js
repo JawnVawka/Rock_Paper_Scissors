@@ -1,3 +1,4 @@
+// random pick for computer
 function computerPlay() {
     const randNum = Math.floor(Math.random() * 3 + 1);
     if (randNum == 1) {
@@ -9,6 +10,7 @@ function computerPlay() {
     }
 }
 
+// ask user for input (Rock, Paper, or Scissors)
 function userPlay() {
     checkChoice = true;
     while (checkChoice) {
@@ -22,4 +24,20 @@ function userPlay() {
     }
 }
 
-console.log(userPlay());
+// Play a round of Rock, Paper, Scissors
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == 'Rock' && computerSelection == 'Scissors' ||
+        playerSelection == 'Paper' && computerSelection == 'Rock' ||
+        playerSelection == 'Scissors' && computerSelection == 'Paper') {
+            return `You Win! ${playerSelection} beats ${computerSelection}`;
+      } else if (playerSelection == computerSelection) {
+        return `It's a tie! You both chose ${computerSelection}`;
+      } else {
+          return `You Lose! ${computerSelection} beats ${playerSelection}`;
+      }
+}
+
+const playerSelection = userPlay();
+const computerSelection = computerPlay();
+
+console.log(playRound(playerSelection, computerSelection));
