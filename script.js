@@ -30,11 +30,10 @@ function validateChoice() {
         } else {
             choice = capitalize(errorChoice());
         }
-    }
-}
+    }[ ]
 
+// create game to check who won
 function playRound (playerSeleciton, computerSelection) {
-    // create game to check who won
     if ((playerSeleciton == 'Rock' && computerSelection == 'Scissors') || (playerSeleciton == 'Paper' && computerSelection == 'Rock') || (playerSeleciton == 'Scissors' && computerSelection == 'Paper')) {
         return `You Win! ${playerSeleciton} beats ${computerSelection}`;
     } else if ((playerSeleciton == 'Rock' && computerSelection == 'Paper') || (playerSeleciton == 'Paper' && computerSelection == 'Scissors') || (playerSeleciton == 'Scissors' && computerSelection == 'Rock')) {
@@ -44,7 +43,16 @@ function playRound (playerSeleciton, computerSelection) {
     }
 }
 
-let playerSeleciton = validateChoice();
+function game() {
+    //repeat playRound() 5 times
+    let count = 0;
+    for (let i = 0; i < 5; i++) {
+        validateChoice();
+    }
+    return count;
+}
+
+// let playerSeleciton = validateChoice();
 let computerSelection = computerPlay();
 
-console.log(playRound(playerSeleciton, computerSelection));
+console.log(game());
